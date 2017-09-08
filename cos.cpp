@@ -7,10 +7,24 @@
 
 
 #include <iostream>
+
+
+
 using namespace std;
 
+int parzyste(int n) 
+    
+{
+    int i;
+    for (i=0 ; i<=n ; i+=2) 
+  
+    cout << i << ""  ;
+    
+    return i/2;
+}
 int main(int argc, char **argv)
 {
+    int n ;
     char imie[100] ;
     int wiek=0;
     cout << "Podaj imie" << endl ;
@@ -30,10 +44,11 @@ int main(int argc, char **argv)
     {
     cout << "Mamy syle samo lat" << endl ;
 }
-for (int i=0 ; i<=100 ; i+2){
+    cout << "podaj liczbe " << endl;
+    cin >> n ;
+    cout << "parzystych " << parzyste(n) << endl;
     
-    return i;
-}
+
 	
 	
 	return 0;
