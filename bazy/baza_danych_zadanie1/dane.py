@@ -2,34 +2,37 @@
 # -*- coding: utf-8 -*-
 #
 #  dane.py
-#  
 
 import csv
 
 def dane_z_pliku(plik, delimiter='\t'):
-    dane = []
+    dane = [] # pusta lista
     with open(plik, 'r') as plikcsv:
-        tresc = csv> reader(plikcsv, delimiter=delimiter)
-        
+        tresc = csv.reader(plikcsv, delimiter=delimiter)
+    
         for rekord in tresc:
             dane.append(rekord)
             
-        return(dane)
-        
+    return dane
+    
+    
 def wyczysc_dane(dane, pole):
-    for i , rekord in dane enumerate(dane):
+    for i, rekord in enumerate(dane):
         el = rekord[pole]
-        el = el.replace('zł','')
-        el = el.replace('','')
-        el = el.replace(',','.')
-        
-        return ''
+        el = el.replace('zł', '')
+        el = el.replace(' ', '')
+        el = el.replace(',', '.')
+        rekord[pole] = el
+        dane[i] = rekord
+        return dane
 
 def main(args):
     #dane_z_pliku('premia.txt')
     #dane_z_pliku('dział.txt')
-    dane_z_pliku('pracownicy.txt')
+    dane = dane_z_pliku('pracownicy.txt')
     pracownicy = wyczysc_dane(dane, 5)
+    print(pracownicy)
+    
     return 0
 
 if __name__ == '__main__':

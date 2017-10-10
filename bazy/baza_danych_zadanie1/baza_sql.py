@@ -2,18 +2,15 @@
 # -*- coding: utf-8 -*-
 #
 #  baza_sql.py
-#  
-
-#  
-
+ 
 import sqlite3
 
-
 def main(args):
-    con = sqlite3.connect ('pracownicy.sqlite3')
+    con = sqlite3.connect('pracownicy.sqlite3')
     cur = con.cursor() # utworzenie kursora
-    # utworzenie tabeli w bazie danych
-    with open ('pracownicy_z1.sql', 'r') as plik:
+    
+    # utworzenie tabel w bazie danych
+    with open('pracownicy_z1.sql', 'r') as plik:
         skrypt = plik.read()
         cur.executescript(skrypt)
     return 0
