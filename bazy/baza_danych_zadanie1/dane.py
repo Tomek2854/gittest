@@ -27,11 +27,16 @@ def wyczysc_dane(dane, pole):
         return dane
 
 def main(args):
-    #dane_z_pliku('premia.txt')
-    #dane_z_pliku('dział.txt')
-    dane = dane_z_pliku('pracownicy.txt')
-    pracownicy = wyczysc_dane(dane, 5)
-    print(pracownicy)
+    premia =dane_z_pliku('premia.txt')
+    premia = wyczysc_dane(premia, 1)
+    
+    dzial = dane_z_pliku('dział.txt')
+    
+    pracownicy = dane_z_pliku('pracownicy.txt')
+    pracownicy = wyczysc_dane(pracownicy, 5)
+    
+    print(premia)
+    
     
     return 0
 
