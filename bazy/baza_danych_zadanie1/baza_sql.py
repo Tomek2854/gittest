@@ -5,6 +5,8 @@
 
 import sqlite3
 from dane import *  # import unkcji 
+
+
 def main(args):
     con = sqlite3.connect('pracownicy.sqlite3')
     cur = con.cursor() # utworzenie kursora
