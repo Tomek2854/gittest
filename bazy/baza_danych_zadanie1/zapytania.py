@@ -5,6 +5,12 @@
 #  MA 02110-1301, USA.
 #  
 import sqlite3
+
+def wyniki(cur):
+    wyniki = cur.fetchall() #pobierz wszystkie wiersze od razu
+    for row in wyniki:
+        print(tuple(row))
+    
  
 def kw_c(cur):
     cur.execute("""
@@ -75,14 +81,17 @@ def kw_g(cur):
         (JulianDay())
     """)
 
+    
+    
+
 
 def main(args):
         
-    con = sqlite3.connect('pracownicy.sqlite3')
+    con = sqlite3.connect('szkola.db')
     cur = con.cursor() # utworzenie kursora
     con.row_factory =sqlite3.Row
     
-    kw_f(cur)
+    
     return 0
 
 
