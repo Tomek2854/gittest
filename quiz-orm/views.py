@@ -13,15 +13,16 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/formularz', methods=['GET', 'POST'])
+@app.route('/formularz', methods=('GET', 'POST'))
 def formularz():
     if request.method == 'POST':
         print(request.form)
         imie = request.form['imie']
         nazwisko = request.form['nazwisko']
         wiek = request.form['wiek']
-        flash('Imię i nazwisko:  %s %s' % (imie, nazwisko), 'kom')
-    dane = [imie, nazwisko, wiek]
+        flash('Imię i nazwisko: %s %s' % (imie, nazwisko), 'kom')
+        dane = [imie, nazwisko, wiek]
+
     return render_template('formularz.html', dane=dane)
 
 
@@ -34,7 +35,6 @@ def lista():
         return redirect(url_for('index'))
 
     return render_template('lista.html', pytania=pytania)
-
 
 @app.route('/quiz')
 def quiz():
@@ -58,7 +58,6 @@ def quiz():
         return redirect(url_for('index'))
 
     return render_template('quiz.html', pytania=pytania)
-
 
 @app.route('/flash_errors')
 def flash_errors(form):
@@ -133,7 +132,6 @@ def edytuj(pid):
     form = DodajForm(obj=p)
     return render_template("edytuj.html", form=form, radio=list(form.odpok))
 
-
 @app.route('/usun/<int:pid>', methods=['GET', 'POST'])
 def usun(pid):
     """Usunięcie pytania o identyfikatorze pid"""
@@ -143,3 +141,8 @@ def usun(pid):
         p.delete_instance(recursive=True)
         return redirect(url_for('index'))
     return render_template("pytanie_usun.html", pytanie=p)
+
+@app.route('/todo', methods=('GET', 'POST'))
+def todo():
+    form = TodoForm()
+    return render_template('todo.html', dane=dane)
