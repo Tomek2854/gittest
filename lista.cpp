@@ -58,3 +58,7 @@ bool Lista::Usun(){
     }
     return false;    
 }
+
+void Lista::Wstaw(int pozycja, int wartosc) {
+        ; // co dalej -musi sprawdzic miejsce gdzie chcemy cos wstawic wstaw np(5,wartosc) funkcja dodaj(wartosc)
+}
